@@ -30,6 +30,9 @@ args=argv[2:len(argv)]
 
 result=eval(code)
 
-if(type(result)==type):
+if isinstaence(result, list):
   for a in result:
     a.print()
+else:
+  result.print()
+  
