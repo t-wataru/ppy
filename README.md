@@ -1,11 +1,19 @@
 # ppy
 
-#example
-echo -e "aaa\nbbb" > hoge
+# example
+echo -e "foo\nbar" > hoge
+>foo<br>
+>bar
 
 cat hoge | xargs ./ppy.py "args.map('a*2')"
->aaaaaa
->bbbbbb
+>foofoo</br>
+>barbar
 
 cat hoge | xargs ./ppy.py "args.reduce('a+b')"
-aaabbb
+>foobar
+
+cat hoge | xargs ./ppy.py "args.filter(\\"'b' in a\\")"
+>bar
+
+cat hoge | xargs ./ppy.py "args.map('a+\\"qwer\\"').filter(\\"'b' in a\\")"
+>barqwer
