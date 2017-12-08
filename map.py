@@ -36,6 +36,3 @@ if(isinstance(result, list)):
     a.print()
 else:
   result.print()
-
-if __name__ == '__main__':
-  [[1,2], [3,4,1], [9, 0, 1]].map("a.sort()").print()
