@@ -17,3 +17,8 @@ cat hoge | xargs ./ppy.py "args.filter(\\"'b' in a\\")"
 
 cat hoge | xargs ./ppy.py "args.map('a+\\"qwer\\"').filter(\\"'b' in a\\")"
 >barqwer
+
+cat hoge | ./map.py "a+'hoge'"
+>foohoge</br>
+>barhoge
+
