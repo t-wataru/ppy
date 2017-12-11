@@ -24,3 +24,6 @@ cat hoge | ./map.py "a+'hoge'"
 
 cat hoge | ./reduce.py a+b*2
 >foobarbar
+
+cat hoge | ./filter.py "'b' in a"
+>bar
