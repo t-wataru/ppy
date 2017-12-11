@@ -22,3 +22,5 @@ cat hoge | ./map.py "a+'hoge'"
 >foohoge</br>
 >barhoge
 
+cat hoge | ./reduce.py a+b*2
+>foobarbar
