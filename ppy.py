@@ -1,36 +1,34 @@
 #!/usr/bin/python3
 # -*- Coding: utf-8 -*-
 
-from forbiddenfruit import curse
+import forbiddenfruit
 from functools import reduce
 from sys import *
 
-def _map(self, func):
-  return [eval(func) for a in self]
+def curseAll():
+  for d in dir():
+    f=eval(d)
+    if callable(f):
+      forbiddenfruit.curse(object, d, createFunc(f))
 
-def _reduce(self, func):
-  return reduce(lambda a, b:eval(func), self)
+  for d in dir(__builtins__):
+    f=getattr(__builtins__, d)
+    if callable(f):
+      forbiddenfruit.curse(object, d, createFunc(f))
 
-def _filter(self, func):
-  return [a for a in self if eval(func)]
- 
-def _print(self):
-  print(self)
+def createFunc(f):
+  def f_(self, *a):
+    return f(self, *a)
+  return f_
 
-curse(list, 'print', _print)
-curse(int, 'print', _print)
-curse(str, 'print', _print)
-curse(float, 'print', _print)
-curse(list, 'map', _map)
-curse(list, 'reduce', _reduce)
-curse(list, 'filter', _filter)
+curseAll()
 
 code=argv[1]
 args=argv[2:len(argv)]
 
 result=eval(code)
 
-if isinstaence(result, list):
+if isinstance(result, list):
   for a in result:
     a.print()
 else:
